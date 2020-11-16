@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtSerialPort/QSerialPort>
+
 
 namespace Ui {
 class MainWindow;
@@ -15,8 +17,16 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_ConnectUART_Button_clicked();
+
+    void on_DisconnectUART_Button_clicked();
+
+    void on_TestUART_button_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QSerialPort *MySerial;
 };
 
 #endif // MAINWINDOW_H

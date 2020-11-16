@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/rec">
+        <file>image/UART-icon.png</file>
+    </qresource>
+</RCC>
