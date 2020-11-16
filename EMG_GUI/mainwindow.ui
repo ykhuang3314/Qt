@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>562</width>
+    <height>454</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>562</width>
      <height>22</height>
     </rect>
    </property>
@@ -29,6 +29,16 @@
     </property>
     <addaction name="actionConnect_Serial_Port"/>
     <addaction name="actionDisconnect_Serial_Port"/>
+    <addaction name="actionCheck_Comm"/>
+    <addaction name="actionIntan_Initialization"/>
+    <addaction name="actionErase_Memory"/>
+    <addaction name="actionRun"/>
+    <addaction name="actionPause"/>
+    <addaction name="actionPlot"/>
+    <addaction name="actionSave_Data"/>
+    <addaction name="actionClear_Plot"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>
@@ -39,20 +49,124 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionConnect_Serial_Port"/>
+   <addaction name="actionDisconnect_Serial_Port"/>
+   <addaction name="actionCheck_Comm"/>
+   <addaction name="actionIntan_Initialization"/>
+   <addaction name="actionErase_Memory"/>
+   <addaction name="separator"/>
+   <addaction name="actionRun"/>
+   <addaction name="actionPause"/>
+   <addaction name="actionPlot"/>
+   <addaction name="actionSave_Data"/>
+   <addaction name="actionClear_Plot"/>
+   <addaction name="separator"/>
+   <addaction name="actionExit"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionConnect_Serial_Port">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/connect_icon.png</normaloff>:/rec/image/connect_icon.png</iconset>
+   </property>
    <property name="text">
     <string>Connect Serial Port</string>
    </property>
   </action>
   <action name="actionDisconnect_Serial_Port">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/disconnect_icon.png</normaloff>:/rec/image/disconnect_icon.png</iconset>
+   </property>
    <property name="text">
     <string>Disconnect Serial Port</string>
    </property>
   </action>
+  <action name="actionCheck_Comm">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/check_icon.png</normaloff>:/rec/image/check_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Check Comm</string>
+   </property>
+  </action>
+  <action name="actionRun">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/run_icon.png</normaloff>:/rec/image/run_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run</string>
+   </property>
+  </action>
+  <action name="actionPause">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/pause_icon.png</normaloff>:/rec/image/pause_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Pause</string>
+   </property>
+  </action>
+  <action name="actionIntan_Initialization">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/initialize_icon.png</normaloff>:/rec/image/initialize_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Intan Initialization</string>
+   </property>
+  </action>
+  <action name="actionErase_Memory">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/earse_icon.png</normaloff>:/rec/image/earse_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Erase Memory</string>
+   </property>
+  </action>
+  <action name="actionPlot">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/plot.png</normaloff>:/rec/image/plot.png</iconset>
+   </property>
+   <property name="text">
+    <string>Plot</string>
+   </property>
+  </action>
+  <action name="actionSave_Data">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/save_icon.png</normaloff>:/rec/image/save_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Data</string>
+   </property>
+  </action>
+  <action name="actionClear_Plot">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/clear_icon.png</normaloff>:/rec/image/clear_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clear Plot</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/rec/image/exit_icon.png</normaloff>:/rec/image/exit_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

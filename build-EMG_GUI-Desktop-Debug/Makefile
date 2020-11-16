@@ -376,7 +376,17 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resource.cpp
 qrc_resource.cpp: ../EMG_GUI/resource.qrc \
 		/usr/lib/qt5/bin/rcc \
-		../EMG_GUI/image/UART-icon.png
+		../EMG_GUI/image/check_icon.png \
+		../EMG_GUI/image/earse_icon.png \
+		../EMG_GUI/image/disconnect_icon.png \
+		../EMG_GUI/image/plot.png \
+		../EMG_GUI/image/save_icon.png \
+		../EMG_GUI/image/initialize_icon.png \
+		../EMG_GUI/image/pause_icon.png \
+		../EMG_GUI/image/connect_icon.png \
+		../EMG_GUI/image/run_icon.png \
+		../EMG_GUI/image/exit_icon.png \
+		../EMG_GUI/image/clear_icon.png
 	/usr/lib/qt5/bin/rcc -name resource ../EMG_GUI/resource.qrc -o qrc_resource.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
