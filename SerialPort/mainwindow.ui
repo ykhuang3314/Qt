@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>591</width>
+    <width>335</width>
     <height>411</height>
    </rect>
   </property>
@@ -26,7 +26,7 @@
     <property name="title">
      <string>Serial port</string>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -76,7 +76,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>591</width>
+     <width>335</width>
      <height>22</height>
     </rect>
    </property>

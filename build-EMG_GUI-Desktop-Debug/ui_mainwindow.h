@@ -13,11 +13,17 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -38,6 +44,16 @@ public:
     QAction *actionClear_Plot;
     QAction *actionExit;
     QWidget *centralWidget;
+    QTabWidget *tabWidget;
+    QWidget *Rx_Tab;
+    QTextBrowser *textBrowser;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label;
+    QTextEdit *textEdit;
+    QPushButton *Send_button;
+    QPushButton *Clear_TextEdit_button;
+    QWidget *Plot_Tab;
     QMenuBar *menuBar;
     QMenu *menuMenu;
     QToolBar *mainToolBar;
@@ -47,7 +63,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(562, 454);
+        MainWindow->resize(620, 508);
         actionConnect_Serial_Port = new QAction(MainWindow);
         actionConnect_Serial_Port->setObjectName(QStringLiteral("actionConnect_Serial_Port"));
         QIcon icon;
@@ -105,10 +121,50 @@ public:
         actionExit->setIcon(icon10);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        tabWidget = new QTabWidget(centralWidget);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setGeometry(QRect(10, 12, 601, 431));
+        Rx_Tab = new QWidget();
+        Rx_Tab->setObjectName(QStringLiteral("Rx_Tab"));
+        textBrowser = new QTextBrowser(Rx_Tab);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+        textBrowser->setGeometry(QRect(10, 50, 581, 321));
+        widget = new QWidget(Rx_Tab);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 10, 581, 31));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(widget);
+        label->setObjectName(QStringLiteral("label"));
+
+        horizontalLayout->addWidget(label);
+
+        textEdit = new QTextEdit(widget);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+
+        horizontalLayout->addWidget(textEdit);
+
+        Send_button = new QPushButton(widget);
+        Send_button->setObjectName(QStringLiteral("Send_button"));
+
+        horizontalLayout->addWidget(Send_button);
+
+        Clear_TextEdit_button = new QPushButton(widget);
+        Clear_TextEdit_button->setObjectName(QStringLiteral("Clear_TextEdit_button"));
+
+        horizontalLayout->addWidget(Clear_TextEdit_button);
+
+        tabWidget->addTab(Rx_Tab, QString());
+        Plot_Tab = new QWidget();
+        Plot_Tab->setObjectName(QStringLiteral("Plot_Tab"));
+        tabWidget->addTab(Plot_Tab, QString());
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 562, 22));
+        menuBar->setGeometry(QRect(0, 0, 620, 22));
         menuMenu = new QMenu(menuBar);
         menuMenu->setObjectName(QStringLiteral("menuMenu"));
         MainWindow->setMenuBar(menuBar);
@@ -148,6 +204,9 @@ public:
 
         retranslateUi(MainWindow);
 
+        tabWidget->setCurrentIndex(0);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -165,6 +224,11 @@ public:
         actionSave_Data->setText(QApplication::translate("MainWindow", "Save Data", Q_NULLPTR));
         actionClear_Plot->setText(QApplication::translate("MainWindow", "Clear Plot", Q_NULLPTR));
         actionExit->setText(QApplication::translate("MainWindow", "Exit", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "Input:", Q_NULLPTR));
+        Send_button->setText(QApplication::translate("MainWindow", "Send", Q_NULLPTR));
+        Clear_TextEdit_button->setText(QApplication::translate("MainWindow", "Clear", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(Rx_Tab), QApplication::translate("MainWindow", "Rx", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(Plot_Tab), QApplication::translate("MainWindow", "Plot", Q_NULLPTR));
         menuMenu->setTitle(QApplication::translate("MainWindow", "Menu", Q_NULLPTR));
     } // retranslateUi
 
