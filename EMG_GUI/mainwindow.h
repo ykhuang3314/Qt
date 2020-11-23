@@ -35,6 +35,8 @@ private slots:
 
     void Memory_Disply();
 
+    void Data_Organize();
+
     void on_actionCheck_Comm_triggered();
 
     void on_actionRun_triggered();
@@ -49,6 +51,23 @@ private slots:
 
     void on_actionClear_Plot_triggered();
 
+    void on_actionOpen_triggered();
+
+    void on_actionSave_as_triggered();
+
+    void save_file();
+
+    void setComboChannel();
+
+    QString int_array_to_string(uint16_t array[], int size_of_array);
+
+    // for testing
+    void data_print_test(void);
+
+    void on_Save_Button_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSerialPort *MySerial;
@@ -56,6 +75,11 @@ private:
     QByteArray TxData;
     QByteArray serialData;
     QString serialBuffer;
+    QString log;
+    QList<QByteArray> DataList_byte;
+    QList<uint16_t*> DatatList_16bit;
+    QString File_Path;
+    int No_Channel;
 
 };
 

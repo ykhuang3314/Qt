@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[18];
-    char stringdata0[433];
+    QByteArrayData data[30];
+    char stringdata0[636];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,13 +42,25 @@ QT_MOC_LITERAL(7, 152, 32), // "on_Clear_TextEdit_button_clicked"
 QT_MOC_LITERAL(8, 185, 10), // "readSerial"
 QT_MOC_LITERAL(9, 196, 14), // "String_Display"
 QT_MOC_LITERAL(10, 211, 13), // "Memory_Disply"
-QT_MOC_LITERAL(11, 225, 29), // "on_actionCheck_Comm_triggered"
-QT_MOC_LITERAL(12, 255, 22), // "on_actionRun_triggered"
-QT_MOC_LITERAL(13, 278, 39), // "on_actionIntan_Initialization..."
-QT_MOC_LITERAL(14, 318, 31), // "on_actionErase_Memory_triggered"
-QT_MOC_LITERAL(15, 350, 23), // "on_actionPlot_triggered"
-QT_MOC_LITERAL(16, 374, 28), // "on_actionSave_Data_triggered"
-QT_MOC_LITERAL(17, 403, 29) // "on_actionClear_Plot_triggered"
+QT_MOC_LITERAL(11, 225, 13), // "Data_Organize"
+QT_MOC_LITERAL(12, 239, 29), // "on_actionCheck_Comm_triggered"
+QT_MOC_LITERAL(13, 269, 22), // "on_actionRun_triggered"
+QT_MOC_LITERAL(14, 292, 39), // "on_actionIntan_Initialization..."
+QT_MOC_LITERAL(15, 332, 31), // "on_actionErase_Memory_triggered"
+QT_MOC_LITERAL(16, 364, 23), // "on_actionPlot_triggered"
+QT_MOC_LITERAL(17, 388, 28), // "on_actionSave_Data_triggered"
+QT_MOC_LITERAL(18, 417, 29), // "on_actionClear_Plot_triggered"
+QT_MOC_LITERAL(19, 447, 23), // "on_actionOpen_triggered"
+QT_MOC_LITERAL(20, 471, 26), // "on_actionSave_as_triggered"
+QT_MOC_LITERAL(21, 498, 9), // "save_file"
+QT_MOC_LITERAL(22, 508, 15), // "setComboChannel"
+QT_MOC_LITERAL(23, 524, 19), // "int_array_to_string"
+QT_MOC_LITERAL(24, 544, 10), // "uint16_t[]"
+QT_MOC_LITERAL(25, 555, 5), // "array"
+QT_MOC_LITERAL(26, 561, 13), // "size_of_array"
+QT_MOC_LITERAL(27, 575, 15), // "data_print_test"
+QT_MOC_LITERAL(28, 591, 22), // "on_Save_Button_clicked"
+QT_MOC_LITERAL(29, 614, 21) // "on_pushButton_clicked"
 
     },
     "MainWindow\0on_actionConnect_Serial_Port_triggered\0"
@@ -57,13 +69,19 @@ QT_MOC_LITERAL(17, 403, 29) // "on_actionClear_Plot_triggered"
     "on_Send_button_clicked\0"
     "on_Clear_TextEdit_button_clicked\0"
     "readSerial\0String_Display\0Memory_Disply\0"
-    "on_actionCheck_Comm_triggered\0"
+    "Data_Organize\0on_actionCheck_Comm_triggered\0"
     "on_actionRun_triggered\0"
     "on_actionIntan_Initialization_triggered\0"
     "on_actionErase_Memory_triggered\0"
     "on_actionPlot_triggered\0"
     "on_actionSave_Data_triggered\0"
-    "on_actionClear_Plot_triggered"
+    "on_actionClear_Plot_triggered\0"
+    "on_actionOpen_triggered\0"
+    "on_actionSave_as_triggered\0save_file\0"
+    "setComboChannel\0int_array_to_string\0"
+    "uint16_t[]\0array\0size_of_array\0"
+    "data_print_test\0on_Save_Button_clicked\0"
+    "on_pushButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -73,7 +91,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      25,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -81,22 +99,31 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   94,    2, 0x08 /* Private */,
-       3,    0,   95,    2, 0x08 /* Private */,
-       4,    0,   96,    2, 0x08 /* Private */,
-       5,    0,   97,    2, 0x08 /* Private */,
-       6,    0,   98,    2, 0x08 /* Private */,
-       7,    0,   99,    2, 0x08 /* Private */,
-       8,    0,  100,    2, 0x08 /* Private */,
-       9,    0,  101,    2, 0x08 /* Private */,
-      10,    0,  102,    2, 0x08 /* Private */,
-      11,    0,  103,    2, 0x08 /* Private */,
-      12,    0,  104,    2, 0x08 /* Private */,
-      13,    0,  105,    2, 0x08 /* Private */,
-      14,    0,  106,    2, 0x08 /* Private */,
-      15,    0,  107,    2, 0x08 /* Private */,
-      16,    0,  108,    2, 0x08 /* Private */,
-      17,    0,  109,    2, 0x08 /* Private */,
+       1,    0,  139,    2, 0x08 /* Private */,
+       3,    0,  140,    2, 0x08 /* Private */,
+       4,    0,  141,    2, 0x08 /* Private */,
+       5,    0,  142,    2, 0x08 /* Private */,
+       6,    0,  143,    2, 0x08 /* Private */,
+       7,    0,  144,    2, 0x08 /* Private */,
+       8,    0,  145,    2, 0x08 /* Private */,
+       9,    0,  146,    2, 0x08 /* Private */,
+      10,    0,  147,    2, 0x08 /* Private */,
+      11,    0,  148,    2, 0x08 /* Private */,
+      12,    0,  149,    2, 0x08 /* Private */,
+      13,    0,  150,    2, 0x08 /* Private */,
+      14,    0,  151,    2, 0x08 /* Private */,
+      15,    0,  152,    2, 0x08 /* Private */,
+      16,    0,  153,    2, 0x08 /* Private */,
+      17,    0,  154,    2, 0x08 /* Private */,
+      18,    0,  155,    2, 0x08 /* Private */,
+      19,    0,  156,    2, 0x08 /* Private */,
+      20,    0,  157,    2, 0x08 /* Private */,
+      21,    0,  158,    2, 0x08 /* Private */,
+      22,    0,  159,    2, 0x08 /* Private */,
+      23,    2,  160,    2, 0x08 /* Private */,
+      27,    0,  165,    2, 0x08 /* Private */,
+      28,    0,  166,    2, 0x08 /* Private */,
+      29,    0,  167,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -112,6 +139,15 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::QString, 0x80000000 | 24, QMetaType::Int,   25,   26,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -134,17 +170,26 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->readSerial(); break;
         case 7: _t->String_Display(); break;
         case 8: _t->Memory_Disply(); break;
-        case 9: _t->on_actionCheck_Comm_triggered(); break;
-        case 10: _t->on_actionRun_triggered(); break;
-        case 11: _t->on_actionIntan_Initialization_triggered(); break;
-        case 12: _t->on_actionErase_Memory_triggered(); break;
-        case 13: _t->on_actionPlot_triggered(); break;
-        case 14: _t->on_actionSave_Data_triggered(); break;
-        case 15: _t->on_actionClear_Plot_triggered(); break;
+        case 9: _t->Data_Organize(); break;
+        case 10: _t->on_actionCheck_Comm_triggered(); break;
+        case 11: _t->on_actionRun_triggered(); break;
+        case 12: _t->on_actionIntan_Initialization_triggered(); break;
+        case 13: _t->on_actionErase_Memory_triggered(); break;
+        case 14: _t->on_actionPlot_triggered(); break;
+        case 15: _t->on_actionSave_Data_triggered(); break;
+        case 16: _t->on_actionClear_Plot_triggered(); break;
+        case 17: _t->on_actionOpen_triggered(); break;
+        case 18: _t->on_actionSave_as_triggered(); break;
+        case 19: _t->save_file(); break;
+        case 20: _t->setComboChannel(); break;
+        case 21: { QString _r = _t->int_array_to_string((*reinterpret_cast< uint16_t(*)[]>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])));
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
+        case 22: _t->data_print_test(); break;
+        case 23: _t->on_Save_Button_clicked(); break;
+        case 24: _t->on_pushButton_clicked(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -172,13 +217,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 25)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 25;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 25)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 16;
+        _id -= 25;
     }
     return _id;
 }
