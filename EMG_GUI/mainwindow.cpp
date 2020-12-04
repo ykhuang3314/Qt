@@ -43,7 +43,7 @@ void MainWindow::setComboChannel()
 
 void MainWindow::on_actionConnect_Serial_Port_triggered()
 {
-    MySerial->setPortName("ttyUSB0");
+    MySerial->setPortName("ttyUSB1");
     MySerial->setBaudRate(QSerialPort::Baud115200);
     MySerial->setDataBits(QSerialPort::Data8);
     MySerial->setParity(QSerialPort::NoParity);
@@ -167,7 +167,7 @@ void MainWindow::Data_Organize()
     uint16_t *tmp_16bit;
     QString text;
     tmp_16bit = new uint16_t[No_Channel];
-    int No_Row = serialData.size()/(2*No_Channel);
+    int No_Row = (serialData.size()-1)/(2*No_Channel);
     qDebug() << "Received data: " << serialData.size() << " Bytes";
 
     for(int i = 0; i<No_Row; i++){
@@ -180,7 +180,7 @@ void MainWindow::Data_Organize()
         }
         else if(ui->radioButton_dec->isChecked()){
             for(int j=0; j<No_Channel; j++)
-                tmp_16bit[j] = (uint16_t)(tmp[2*j]<<8) + (uint16_t)tmp[2*j+1];
+                tmp_16bit[j] = (uint16_t)(tmp[2*j]<<8) + tmp[2*j+1];
             DatatList_16bit.append(tmp_16bit);
             text = int_array_to_string(tmp_16bit, No_Channel);
             ui->textBrowser->append(text);
@@ -198,11 +198,12 @@ QString MainWindow::int_array_to_string(uint16_t array[], int size_of_array)
 }
 void MainWindow::data_print_test(void){
 
-    int datasize = 256;
+    int datasize = 257;
 
     for(int i=0; i<datasize; i++){
         serialData.append(i);
     }
+
     Data_Organize();
 }
 
@@ -217,12 +218,20 @@ void MainWindow::on_actionCheck_Comm_triggered()
 
 void MainWindow::on_actionRun_triggered()
 {
+    /*
     if(ui->comboBox_channel->currentIndex() == 0)
         //single-channel measurement
         TxText = "m";
     else
         //multi-channel measurement
         TxText = "M";
+    */
+    if(ui->comboBox_channel->currentIndex() < 8)
+        TxText = QString::number(ui->comboBox_channel->currentIndex()+1);
+    else if(ui->comboBox_channel->currentIndex() == 15)
+        TxText = "f";
+    else if(ui->comboBox_channel->currentIndex() == 31)
+        TxText = "a";
 
     TxData = TxText.toUtf8();
 
@@ -251,6 +260,15 @@ void MainWindow::on_actionErase_Memory_triggered()
 void MainWindow::on_actionPlot_triggered()
 {
     TxText = "p";
+
+    TxData = TxText.toUtf8();
+
+    writeSerial();
+}
+
+void MainWindow::on_actionADC_Self_Calibration_triggered()
+{
+    TxText = "C";
 
     TxData = TxText.toUtf8();
 
@@ -332,7 +350,9 @@ void MainWindow::on_actionSave_as_triggered()
 void MainWindow::on_pushButton_clicked()
 {
     No_Channel = ui->comboBox_channel->currentIndex()+1;
-    qDebug() << ui->comboBox_channel->currentIndex();
+    qDebug() << No_Channel;
     QString text = QString::number(No_Channel) + "-channel measurment set.";
     ui->statusBar->showMessage(text, 500);
 }
+
+

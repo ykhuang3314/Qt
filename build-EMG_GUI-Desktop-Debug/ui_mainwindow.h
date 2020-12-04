@@ -23,6 +23,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
@@ -48,8 +49,9 @@ public:
     QAction *actionExit;
     QAction *actionOpen;
     QAction *actionSave_as;
+    QAction *actionADC_Self_Calibration;
     QWidget *centralWidget;
-    QWidget *widget;
+    QVBoxLayout *verticalLayout_4;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_4;
     QHBoxLayout *horizontalLayout_3;
@@ -60,6 +62,7 @@ public:
     QLabel *label_4;
     QRadioButton *radioButton_hex;
     QRadioButton *radioButton_dec;
+    QSpacerItem *horizontalSpacer;
     QTabWidget *tabWidget;
     QWidget *Rx_Tab;
     QVBoxLayout *verticalLayout_2;
@@ -149,33 +152,37 @@ public:
         QIcon icon12;
         icon12.addFile(QStringLiteral(":/rec/image/save_as_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionSave_as->setIcon(icon12);
+        actionADC_Self_Calibration = new QAction(MainWindow);
+        actionADC_Self_Calibration->setObjectName(QStringLiteral("actionADC_Self_Calibration"));
+        QIcon icon13;
+        icon13.addFile(QStringLiteral(":/rec/image/calibration_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionADC_Self_Calibration->setIcon(icon13);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 20, 700, 461));
-        verticalLayout_3 = new QVBoxLayout(widget);
+        verticalLayout_4 = new QVBoxLayout(centralWidget);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         horizontalLayout_3->addWidget(label_3);
 
-        comboBox_channel = new QComboBox(widget);
+        comboBox_channel = new QComboBox(centralWidget);
         comboBox_channel->setObjectName(QStringLiteral("comboBox_channel"));
 
         horizontalLayout_3->addWidget(comboBox_channel);
 
-        pushButton = new QPushButton(widget);
+        pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
 
         horizontalLayout_3->addWidget(pushButton);
@@ -186,20 +193,24 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         horizontalLayout_2->addWidget(label_4);
 
-        radioButton_hex = new QRadioButton(widget);
+        radioButton_hex = new QRadioButton(centralWidget);
         radioButton_hex->setObjectName(QStringLiteral("radioButton_hex"));
 
         horizontalLayout_2->addWidget(radioButton_hex);
 
-        radioButton_dec = new QRadioButton(widget);
+        radioButton_dec = new QRadioButton(centralWidget);
         radioButton_dec->setObjectName(QStringLiteral("radioButton_dec"));
 
         horizontalLayout_2->addWidget(radioButton_dec);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
 
 
         horizontalLayout_4->addLayout(horizontalLayout_2);
@@ -207,7 +218,7 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout_4);
 
-        tabWidget = new QTabWidget(widget);
+        tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         Rx_Tab = new QWidget();
         Rx_Tab->setObjectName(QStringLiteral("Rx_Tab"));
@@ -274,6 +285,9 @@ public:
 
         verticalLayout_3->addWidget(tabWidget);
 
+
+        verticalLayout_4->addLayout(verticalLayout_3);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -293,6 +307,7 @@ public:
         menuMenu->addAction(actionDisconnect_Serial_Port);
         menuMenu->addAction(actionCheck_Comm);
         menuMenu->addAction(actionIntan_Initialization);
+        menuMenu->addAction(actionADC_Self_Calibration);
         menuMenu->addAction(actionErase_Memory);
         menuMenu->addAction(actionRun);
         menuMenu->addAction(actionPause);
@@ -308,6 +323,7 @@ public:
         mainToolBar->addAction(actionDisconnect_Serial_Port);
         mainToolBar->addAction(actionCheck_Comm);
         mainToolBar->addAction(actionIntan_Initialization);
+        mainToolBar->addAction(actionADC_Self_Calibration);
         mainToolBar->addAction(actionErase_Memory);
         mainToolBar->addSeparator();
         mainToolBar->addAction(actionRun);
@@ -323,7 +339,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -345,6 +361,7 @@ public:
         actionExit->setText(QApplication::translate("MainWindow", "Exit", Q_NULLPTR));
         actionOpen->setText(QApplication::translate("MainWindow", "Open", Q_NULLPTR));
         actionSave_as->setText(QApplication::translate("MainWindow", "Save as", Q_NULLPTR));
+        actionADC_Self_Calibration->setText(QApplication::translate("MainWindow", "ADC Self-Calibration", Q_NULLPTR));
         label_3->setText(QApplication::translate("MainWindow", "Number of Channel:", Q_NULLPTR));
         pushButton->setText(QApplication::translate("MainWindow", "Set", Q_NULLPTR));
         label_4->setText(QApplication::translate("MainWindow", "Output format", Q_NULLPTR));

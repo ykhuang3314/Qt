@@ -68,6 +68,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_actionADC_Self_Calibration_triggered();
+
 private:
     Ui::MainWindow *ui;
     QSerialPort *MySerial;

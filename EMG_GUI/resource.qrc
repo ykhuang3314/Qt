@@ -14,5 +14,6 @@
         <file>image/save_as_icon.png</file>
         <file>image/open_file_icon.png</file>
         <file>image/testing.png</file>
+        <file>image/calibration_icon.png</file>
     </qresource>
 </RCC>

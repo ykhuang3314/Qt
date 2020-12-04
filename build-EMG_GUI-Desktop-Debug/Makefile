@@ -390,6 +390,7 @@ qrc_resource.cpp: ../EMG_GUI/resource.qrc \
 		../EMG_GUI/image/plot.png \
 		../EMG_GUI/image/testing.png \
 		../EMG_GUI/image/save_icon.png \
+		../EMG_GUI/image/calibration_icon.png \
 		../EMG_GUI/image/initialize_icon.png \
 		../EMG_GUI/image/pause_icon.png \
 		../EMG_GUI/image/connect_icon.png \
